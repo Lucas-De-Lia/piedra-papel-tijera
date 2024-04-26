@@ -1,41 +1,195 @@
+
+//funciones
 function random(){
     let numeroRandom= Math.random();
     let nuevoNumero=(Math.floor((numeroRandom*10))%3)+1;
     return nuevoNumero;
 }
-//el usuario eligio piedra
-function piedra(){
-    const eleccionMaquina=random();
-    if(eleccionMaquina===1){
-        //si es 1 lo tomo como que eligio Piedra
-        alert('Empate!,la maquina eligio piedra');
-    }else if(eleccionMaquina ===2){
-        //caso Papel
-        alert('Perdiste!,la maquina eligio Papel')
-    }else{
-        //caso tijera
-        alert('Ganaste!,la maquina eligio Tijera')
+const restaurar=()=>{
+    const nuevoDiv=document.querySelector('.resultado');
+    if(nuevoDiv!==null){
+        contenedor.removeChild(nuevoDiv);
+        acumuladorResultados[0]=0;
+        acumuladorResultados[1]=0;
+        contador.innerText='0:0'
     }
 }
-//el usuario eligio papel
-function papel(){
+const contenedor=document.querySelector('.contenedor');
+const h1=document.querySelector('.contenedor h1');
+const contador=document.getElementById('contador');
+const eleccionUsuario= document.getElementsByClassName('button-game');
+const restart= document.getElementById('restart');
+//contador de resultados
+let acumuladorResultados=[0,0];
+//eventos del DOM 
+//reinicio
+restart.addEventListener('click',restaurar);
+eleccionUsuario[0].addEventListener('click',()=>{
     const eleccionMaquina=random();
     if(eleccionMaquina===1){
-        alert('Ganaste!,la maquina eligio Piedra')
+        const resultadoAnterior=document.querySelector('.resultado');
+        if(resultadoAnterior!==null){
+            const nuevoDiv=document.createElement('div');
+            nuevoDiv.classList.add('resultado');
+            nuevoDiv.innerText=`IT'S A DRAW 😱​`
+            contenedor.removeChild(resultadoAnterior);
+            contenedor.insertBefore(nuevoDiv,contador);
+        }else{
+            const nuevoDiv=document.createElement('div');
+            nuevoDiv.classList.add('resultado');
+            nuevoDiv.innerText=`IT'S A DRAW 😱​`;
+            contenedor.insertBefore(nuevoDiv,contador);
+        }
     }else if(eleccionMaquina===2){
-        alert('Empate!,la maquina eligio papel');
+        const resultadoAnterior=document.querySelector('.resultado');
+        if(resultadoAnterior!==null){
+            const nuevoDiv=document.createElement('div');
+            nuevoDiv.classList.add('resultado');
+            nuevoDiv.innerText='OH NOO, YOU LOSE YOUR OPONENT CHOOSE PAPER!☹️​';
+            contenedor.removeChild(resultadoAnterior);
+            contenedor.insertBefore(nuevoDiv,contador);
+            acumuladorResultados[1]+=1;
+            contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+        }else{
+            const nuevoDiv=document.createElement('div');
+            nuevoDiv.classList.add('resultado');
+            nuevoDiv.innerText='OH NOO, YOU LOSE YOUR OPONENT CHOOSE PAPER!☹️​';
+            contenedor.insertBefore(nuevoDiv,contador);
+            acumuladorResultados[1]+=1;
+            contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+        }
     }else{
-        alert('Perdiste!,la maquina eligio Tijera');
+        const resultadoAnterior=document.querySelector('.resultado');
+        if(resultadoAnterior!==null){
+            const nuevoDiv=document.createElement('div');
+            nuevoDiv.classList.add('resultado');
+            nuevoDiv.innerText='YEAH, YOU WIN 💪​';
+            contenedor.removeChild(resultadoAnterior);
+            contenedor.insertBefore(nuevoDiv,contador);
+            acumuladorResultados[0]+=1;
+            contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+        }else{
+            const nuevoDiv=document.createElement('div');
+            nuevoDiv.classList.add('resultado');
+            nuevoDiv.innerText='YEAH, YOU WIN 💪​';
+            contenedor.insertBefore(nuevoDiv,contador);
+            acumuladorResultados[0]+=1;
+            contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+        }
     }
-}
-//el usuario eligio tijera
-function tijera(){
+});
+eleccionUsuario[1].addEventListener('click',()=>{
     const eleccionMaquina=random();
-    if(eleccionMaquina===1){
-        alert('Perdiste!,la maquina eligio Piedra');
-    }else if(eleccionMaquina===2){
-        alert('Ganaste!,la maquina eligio Papel');
+    if(eleccionMaquina===2){
+        const resultadoAnterior=document.querySelector('.resultado');
+        if(resultadoAnterior!==null){
+            const nuevoDiv=document.createElement('div');
+            nuevoDiv.classList.add('resultado');
+            nuevoDiv.innerText=`IT'S A DRAW 😱​`
+            contenedor.removeChild(resultadoAnterior);
+            contenedor.insertBefore(nuevoDiv,contador);
+        }else{
+            const nuevoDiv=document.createElement('div');
+            nuevoDiv.classList.add('resultado');
+            nuevoDiv.innerText=`IT'S A DRAW 😱​`;
+            contenedor.insertBefore(nuevoDiv,contador);
+        }
+    }else if(eleccionMaquina===3){
+        const resultadoAnterior=document.querySelector('.resultado');
+        if(resultadoAnterior!==null){
+            const nuevoDiv=document.createElement('div');
+            nuevoDiv.classList.add('resultado');
+            nuevoDiv.innerText='OH NOO, YOU LOSE YOUR OPONENT CHOOSE SCISSORS!☹️​';
+            contenedor.removeChild(resultadoAnterior);
+            contenedor.insertBefore(nuevoDiv,contador);
+            acumuladorResultados[1]+=1;
+            contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+        }else{
+            const nuevoDiv=document.createElement('div');
+            nuevoDiv.classList.add('resultado');
+            nuevoDiv.innerText='OH NOO, YOU LOSE YOUR OPONENT CHOOSE SCISSORS!☹️​';
+            contenedor.insertBefore(nuevoDiv,contador);
+            acumuladorResultados[1]+=1;
+            contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+        }
     }else{
-        alert('Empate!,la maquina eligio Tijera')
+        const resultadoAnterior=document.querySelector('.resultado');
+        if(resultadoAnterior!==null){
+            const nuevoDiv=document.createElement('div');
+            nuevoDiv.classList.add('resultado');
+            nuevoDiv.innerText='YEAH, YOU WIN 💪​';
+            contenedor.removeChild(resultadoAnterior);
+            contenedor.insertBefore(nuevoDiv,contador);
+            acumuladorResultados[0]+=1;
+            contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+        }else{
+            const nuevoDiv=document.createElement('div');
+            nuevoDiv.classList.add('resultado');
+            nuevoDiv.innerText='YEAH, YOU WIN 💪​';
+            contenedor.insertBefore(nuevoDiv,contador);
+            acumuladorResultados[0]+=1;
+            contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+        }
     }
-}
+});
+eleccionUsuario[2].addEventListener('click',()=>{
+    const eleccionMaquina=random();
+    if(eleccionMaquina===3){
+        const resultadoAnterior=document.querySelector('.resultado');
+        if(resultadoAnterior!==null){
+            const nuevoDiv=document.createElement('div');
+            nuevoDiv.classList.add('resultado');
+            nuevoDiv.innerText=`IT'S A DRAW 😱​`
+            contenedor.removeChild(resultadoAnterior);
+            contenedor.insertBefore(nuevoDiv,contador);
+        }else{
+            const nuevoDiv=document.createElement('div');
+            nuevoDiv.classList.add('resultado');
+            nuevoDiv.innerText=`IT'S A DRAW 😱​`;
+            contenedor.insertBefore(nuevoDiv,contador);
+        }
+    }else if(eleccionMaquina===1){
+        const resultadoAnterior=document.querySelector('.resultado');
+        if(resultadoAnterior!==null){
+            const nuevoDiv=document.createElement('div');
+            nuevoDiv.classList.add('resultado');
+            nuevoDiv.innerText='OH NOO, YOU LOSE YOUR OPONENT CHOOSE ROCK!☹️​';
+            contenedor.removeChild(resultadoAnterior);
+            contenedor.insertBefore(nuevoDiv,contador);
+            acumuladorResultados[1]+=1;
+            contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+        }else{
+            const nuevoDiv=document.createElement('div');
+            nuevoDiv.classList.add('resultado');
+            nuevoDiv.innerText='OH NOO, YOU LOSE YOUR OPONENT CHOOSE ROCK!☹️​';
+            contenedor.insertBefore(nuevoDiv,contador);
+            acumuladorResultados[1]+=1;
+            contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+        }
+    }else{
+        const resultadoAnterior=document.querySelector('.resultado');
+        if(resultadoAnterior!==null){
+            const nuevoDiv=document.createElement('div');
+            nuevoDiv.classList.add('resultado');
+            nuevoDiv.innerText='YEAH, YOU WIN 💪​';
+            contenedor.removeChild(resultadoAnterior);
+            contenedor.insertBefore(nuevoDiv,contador);
+            acumuladorResultados[0]+=1;
+            contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+        }else{
+            const nuevoDiv=document.createElement('div');
+            nuevoDiv.classList.add('resultado');
+            nuevoDiv.innerText='YEAH, YOU WIN 💪​';
+            contenedor.insertBefore(nuevoDiv,contador);
+            acumuladorResultados[0]+=1;
+            contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+        }
+    }
+});
+/* 
+eleccionUsuario[0].addEventListener('keydown',);
+eleccionUsuario[1].addEventListener('click',);
+eleccionUsuario[1].addEventListener('keydown',);
+eleccionUsuario[2].addEventListener('click',);
+eleccionUsuario[2].addEventListener('keydown',);
+*/
