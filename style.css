@@ -31,7 +31,8 @@ body{
 .contenedor-botones{
     display: flex;
     flex-direction: column;
-    gap:30px
+    gap:30px;
+    margin-bottom: 30px;
 }
 #contador{
     font-size: 30px;
@@ -77,4 +78,7 @@ body{
 #foot{
     color:rgb(0, 128, 128)
 }
-
+.resultado{
+    font-weight: bold;
+    font-size: 20px;
+}
