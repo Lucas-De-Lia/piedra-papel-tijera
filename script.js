@@ -14,6 +14,20 @@ const restaurar=()=>{
         contador.innerText='0:0'
     }
 }
+const ganadorMaquina=(resultado)=>{
+    if(resultado===5){
+        acumuladorResultados[0]=0;
+        acumuladorResultados[1]=0;
+        contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+    }
+}
+const ganadorUsuario=(resultado)=>{
+    if(resultado===5){
+        acumuladorResultados[0]=0;
+        acumuladorResultados[1]=0;
+        contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+    }
+}
 const contenedor=document.querySelector('.contenedor');
 const h1=document.querySelector('.contenedor h1');
 const contador=document.getElementById('contador');
@@ -50,6 +64,7 @@ eleccionUsuario[0].addEventListener('click',()=>{
             contenedor.insertBefore(nuevoDiv,contador);
             acumuladorResultados[1]+=1;
             contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+            ganadorMaquina(acumuladorResultados[1]);
         }else{
             const nuevoDiv=document.createElement('div');
             nuevoDiv.classList.add('resultado');
@@ -57,6 +72,7 @@ eleccionUsuario[0].addEventListener('click',()=>{
             contenedor.insertBefore(nuevoDiv,contador);
             acumuladorResultados[1]+=1;
             contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+            ganadorMaquina(acumuladorResultados[1]);
         }
     }else{
         const resultadoAnterior=document.querySelector('.resultado');
@@ -68,6 +84,7 @@ eleccionUsuario[0].addEventListener('click',()=>{
             contenedor.insertBefore(nuevoDiv,contador);
             acumuladorResultados[0]+=1;
             contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+            ganadorUsuario(acumuladorResultados[0]);
         }else{
             const nuevoDiv=document.createElement('div');
             nuevoDiv.classList.add('resultado');
@@ -75,6 +92,7 @@ eleccionUsuario[0].addEventListener('click',()=>{
             contenedor.insertBefore(nuevoDiv,contador);
             acumuladorResultados[0]+=1;
             contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+            ganadorUsuario(acumuladorResultados[0]);
         }
     }
 });
@@ -104,6 +122,7 @@ eleccionUsuario[1].addEventListener('click',()=>{
             contenedor.insertBefore(nuevoDiv,contador);
             acumuladorResultados[1]+=1;
             contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+            ganadorMaquina(acumuladorResultados[1]);
         }else{
             const nuevoDiv=document.createElement('div');
             nuevoDiv.classList.add('resultado');
@@ -111,6 +130,7 @@ eleccionUsuario[1].addEventListener('click',()=>{
             contenedor.insertBefore(nuevoDiv,contador);
             acumuladorResultados[1]+=1;
             contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+            ganadorMaquina(acumuladorResultados[1]);
         }
     }else{
         const resultadoAnterior=document.querySelector('.resultado');
@@ -122,6 +142,7 @@ eleccionUsuario[1].addEventListener('click',()=>{
             contenedor.insertBefore(nuevoDiv,contador);
             acumuladorResultados[0]+=1;
             contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+            ganadorUsuario(acumuladorResultados[0]);
         }else{
             const nuevoDiv=document.createElement('div');
             nuevoDiv.classList.add('resultado');
@@ -129,6 +150,7 @@ eleccionUsuario[1].addEventListener('click',()=>{
             contenedor.insertBefore(nuevoDiv,contador);
             acumuladorResultados[0]+=1;
             contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+            ganadorUsuario(acumuladorResultados[0]);
         }
     }
 });
@@ -158,6 +180,7 @@ eleccionUsuario[2].addEventListener('click',()=>{
             contenedor.insertBefore(nuevoDiv,contador);
             acumuladorResultados[1]+=1;
             contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+            ganadorMaquina(acumuladorResultados[1]);
         }else{
             const nuevoDiv=document.createElement('div');
             nuevoDiv.classList.add('resultado');
@@ -165,6 +188,7 @@ eleccionUsuario[2].addEventListener('click',()=>{
             contenedor.insertBefore(nuevoDiv,contador);
             acumuladorResultados[1]+=1;
             contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+            ganadorMaquina(acumuladorResultados[1]);
         }
     }else{
         const resultadoAnterior=document.querySelector('.resultado');
@@ -176,6 +200,7 @@ eleccionUsuario[2].addEventListener('click',()=>{
             contenedor.insertBefore(nuevoDiv,contador);
             acumuladorResultados[0]+=1;
             contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+            ganadorUsuario(acumuladorResultados[0]);
         }else{
             const nuevoDiv=document.createElement('div');
             nuevoDiv.classList.add('resultado');
@@ -183,13 +208,8 @@ eleccionUsuario[2].addEventListener('click',()=>{
             contenedor.insertBefore(nuevoDiv,contador);
             acumuladorResultados[0]+=1;
             contador.innerText=`${acumuladorResultados[0]}:${acumuladorResultados[1]}`
+            ganadorUsuario(acumuladorResultados[0]);
         }
     }
 });
-/* 
-eleccionUsuario[0].addEventListener('keydown',);
-eleccionUsuario[1].addEventListener('click',);
-eleccionUsuario[1].addEventListener('keydown',);
-eleccionUsuario[2].addEventListener('click',);
-eleccionUsuario[2].addEventListener('keydown',);
-*/
+
